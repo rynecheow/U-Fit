@@ -11,7 +11,7 @@ public struct HandPositions{
 	}
 }
 
-public class UserSilhoutte {
+public class BodyJoint {
 	
 	public Transform transform;
 	public float radius;
@@ -19,10 +19,10 @@ public class UserSilhoutte {
 	private GameObject joint;
 	private GameObject bone;
 	
-	public UserSilhoutte () {
+	public BodyJoint () {
 	}
 	
-	public UserSilhoutte (string name, Vector3 position, Quaternion rotation, Vector3 direction, float length, float radius) {
+	public BodyJoint (string name, Vector3 position, Quaternion rotation, Vector3 direction, float length, float radius) {
 		//create joint transform
 		joint = new GameObject(name);
 		transform = joint.transform;
@@ -35,18 +35,38 @@ public class UserSilhoutte {
 		bone.transform.localPosition = 0.5F * length * direction.normalized;
 		bone.transform.localRotation = Quaternion.LookRotation(-Vector3.forward, direction);
 		
+		//Only to get the mesh of a capsule
+		GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+		MeshFilter meshf = capsule.GetComponent<MeshFilter>();
+		
+		//create mesh filter
+		bone.AddComponent("MeshFilter");
+		MeshFilter boneMFilter = bone.GetComponent<MeshFilter>();
+		boneMFilter.mesh = meshf.mesh;
+		
+		GameObject.Destroy(capsule);
+		
+		bone.AddComponent("MeshRenderer");
+		MeshRenderer boneMRenderer = bone.GetComponent<MeshRenderer>();
+		boneMRenderer.material = Resources.Load("boneMaterial", typeof(Material)) as Material;
+		
+		//convert radius and length to scale
+		bone.transform.localScale = new Vector3(2.0F * radius, (length/2.0F) + radius, 2.0F * radius);
+		
+
+		
 		//create collider
 		bone.AddComponent("CapsuleCollider");
-		CapsuleCollider boneCollider = bone.GetComponent<CapsuleCollider>();
-		boneCollider.radius = radius;
-		boneCollider.height = length + (2.0F * radius);
+		//CapsuleCollider boneCollider = bone.GetComponent<CapsuleCollider>();
+		//boneCollider.radius = radius;
+		//boneCollider.height = length + (2.0F * radius);
 		
 		//hack for clothe att
 		this.radius = radius;
 	}
 }
 
-public class AdaptableTorso : UserSilhoutte {
+public class AdaptableTorso : BodyJoint {
 	private GameObject torso;
 	private int [] loopIndex = new int[6];
 	
@@ -190,21 +210,21 @@ public class UserBody {
 	public Vector3 location;
 	
 	//public atm just for clothing att hack
-	public UserSilhoutte leftShoulder,leftElbow,rightShoulder,rightElbow,leftHip,leftKnee,rightHip,rightKnee,torsoCenter,neck;
+	public BodyJoint leftShoulder,leftElbow,rightShoulder,rightElbow,leftHip,leftKnee,rightHip,rightKnee,torsoCenter,neck;
 	
 	// pause update (e.g. for adding clothing)
 	public bool pauseUpdate = false;
 	
 	// root of the body transform hierarchy and joint mappings
 	private Transform userBody;
-	private Dictionary<NiteManager.SkeletonJoint, UserSilhoutte> skeletonJointMapping;
+	private Dictionary<NiteManager.SkeletonJoint, BodyJoint> skeletonJointMapping;
 	
 	public void InitBody(NiteController niteController) {
 		Debug.Log("Initializing the user body");
 		niteController.Update(); // NiteManager does not have the new transforms yet
 		
 		// TODO: get radius
-		float upperLegRadius = 0.1F, lowerLegRadius = 0.1F, neckRadius = 0.01F;
+		float upperLegRadius = 0.075F, lowerLegRadius = 0.06F, neckRadius = 0.05F;
 
 		//get positions of left arm parts
 		Vector3 leftShoulderPos, leftElbowPos, leftHandPos;
@@ -218,8 +238,8 @@ public class UserBody {
 		//intialize left arm components
 		float leftArmUpperRadius = 0.5F * niteController.diameter[(int)NiteManager.BodySlice.LEFT_ARM_UPPER_2];
 		float leftArmLowerRadius = 0.5F * niteController.diameter[(int)NiteManager.BodySlice.LEFT_ARM_LOWER_2];
-		leftShoulder = new UserSilhoutte("Left_Shoulder", leftShoulderPos, leftShoulderRot, Vector3.right, (leftElbowPos - leftShoulderPos).magnitude, leftArmUpperRadius);
-		leftElbow = new UserSilhoutte("Left_Elbow", leftElbowPos, leftElbowRot, Vector3.right, (leftHandPos - leftElbowPos).magnitude, leftArmLowerRadius);
+		leftShoulder = new BodyJoint("Left_Shoulder", leftShoulderPos, leftShoulderRot, Vector3.right, (leftElbowPos - leftShoulderPos).magnitude, leftArmUpperRadius);
+		leftElbow = new BodyJoint("Left_Elbow", leftElbowPos, leftElbowRot, Vector3.right, (leftHandPos - leftElbowPos).magnitude, leftArmLowerRadius);
 		leftElbow.transform.parent = leftShoulder.transform;
 		
 		//get positions of right arm parts
@@ -234,8 +254,8 @@ public class UserBody {
 		//intialize right arm components
 		float rightArmUpperRadius = 0.5F * niteController.diameter[(int)NiteManager.BodySlice.RIGHT_ARM_UPPER_2];
 		float rightArmLowerRadius = 0.5F * niteController.diameter[(int)NiteManager.BodySlice.RIGHT_ARM_LOWER_2];
-		rightShoulder = new UserSilhoutte("Right_Shoulder", rightShoulderPos, rightShoulderRot, Vector3.left, (rightElbowPos - rightShoulderPos).magnitude, rightArmUpperRadius);
-		rightElbow = new UserSilhoutte("Right_Elbow", rightElbowPos, rightElbowRot, Vector3.left, (rightHandPos - rightElbowPos).magnitude, rightArmLowerRadius);
+		rightShoulder = new BodyJoint("Right_Shoulder", rightShoulderPos, rightShoulderRot, Vector3.left, (rightElbowPos - rightShoulderPos).magnitude, rightArmUpperRadius);
+		rightElbow = new BodyJoint("Right_Elbow", rightElbowPos, rightElbowRot, Vector3.left, (rightHandPos - rightElbowPos).magnitude, rightArmLowerRadius);
 		rightElbow.transform.parent = rightShoulder.transform;
 
 		//get positions of left leg parts
@@ -248,8 +268,8 @@ public class UserBody {
 		niteController.GetJointOrientation(NiteManager.SkeletonJoint.LEFT_KNEE, out leftKneeRot);
 		
 		//intialize left leg components
-		leftHip = new UserSilhoutte("Left_Hip", leftHipPos, leftHipRot, Vector3.down, (leftKneePos - leftHipPos).magnitude, upperLegRadius);
-		leftKnee = new UserSilhoutte("Left_Knee", leftKneePos, leftKneeRot, Vector3.down, (leftFootPos - leftKneePos).magnitude, lowerLegRadius);
+		leftHip = new BodyJoint("Left_Hip", leftHipPos, leftHipRot, Vector3.down, (leftKneePos - leftHipPos).magnitude, upperLegRadius);
+		leftKnee = new BodyJoint("Left_Knee", leftKneePos, leftKneeRot, Vector3.down, (leftFootPos - leftKneePos).magnitude, lowerLegRadius);
 		leftKnee.transform.parent = leftHip.transform;
 		
 		//get positions of right leg parts
@@ -262,8 +282,8 @@ public class UserBody {
 		niteController.GetJointOrientation(NiteManager.SkeletonJoint.RIGHT_KNEE, out rightKneeRot);
 		
 		//intialize right leg components
-		rightHip = new UserSilhoutte("Right_Hip", rightHipPos, rightHipRot, Vector3.down, (rightKneePos - rightHipPos).magnitude, upperLegRadius);
-		rightKnee = new UserSilhoutte("Right_Knee", rightKneePos, rightKneeRot, Vector3.down, (rightFootPos - rightKneePos).magnitude, lowerLegRadius);
+		rightHip = new BodyJoint("Right_Hip", rightHipPos, rightHipRot, Vector3.down, (rightKneePos - rightHipPos).magnitude, upperLegRadius);
+		rightKnee = new BodyJoint("Right_Knee", rightKneePos, rightKneeRot, Vector3.down, (rightFootPos - rightKneePos).magnitude, lowerLegRadius);
 		rightKnee.transform.parent = rightHip.transform;
 		
 		//get positions of neck and head
@@ -274,7 +294,7 @@ public class UserBody {
 		niteController.GetJointOrientation(NiteManager.SkeletonJoint.NECK, out neckRot);
 		
 		//initialize neck joint
-		neck = new UserSilhoutte("Neck", neckPos, neckRot, Vector3.up, (headPos - neckPos).magnitude, neckRadius); 
+		neck = new BodyJoint("Neck", neckPos, neckRot, Vector3.up, (headPos - neckPos).magnitude, neckRadius); 
 		
 		//get positions of torso
 		Vector3 torsoPos;
@@ -290,29 +310,29 @@ public class UserBody {
 		lowerLength = (leftHipPos + 0.5F * (rightHipPos - leftHipPos) - torsoPos).magnitude; //from centerpoint between the two hips to torso_center
 		AdaptableTorso torso = new AdaptableTorso(torsoPos, torsoRot, upperLength, lowerLength, shoulderRadius);
 		torso.AdaptToUser(niteController);
-		torsoCenter = (UserSilhoutte)torso;
+		torsoCenter = (BodyJoint)torso;
 		neck.transform.parent = torsoCenter.transform;
 		leftShoulder.transform.parent = torsoCenter.transform;
 		rightShoulder.transform.parent = torsoCenter.transform;
 		leftHip.transform.parent = torsoCenter.transform;
 		rightHip.transform.parent = torsoCenter.transform;
 			
-		skeletonJointMapping = new Dictionary<NiteManager.SkeletonJoint, UserSilhoutte>();
-//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.HEAD, new UserSilhoutte());
+		skeletonJointMapping = new Dictionary<NiteManager.SkeletonJoint, BodyJoint>();
+//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.HEAD, new BodyJoint());
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.NECK, neck);
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_SHOULDER, leftShoulder);
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_ELBOW, leftElbow);
-//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_HAND, new UserSilhoutte());
+//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_HAND, new BodyJoint());
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_SHOULDER, rightShoulder);
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_ELBOW, rightElbow);
-//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_HAND, new UserSilhoutte());
+//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_HAND, new BodyJoint());
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.TORSO_CENTER, torsoCenter);
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_HIP, leftHip);
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_KNEE, leftKnee);
-//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_FOOT, new UserSilhoutte());
+//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.LEFT_FOOT, new BodyJoint());
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_HIP, rightHip);
 		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_KNEE, rightKnee);
-//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_FOOT, new UserSilhoutte());
+//		skeletonJointMapping.Add(NiteManager.SkeletonJoint.RIGHT_FOOT, new BodyJoint());
 	}
 	
 	
@@ -353,14 +373,14 @@ public class UserBody {
 			Quaternion rotation;
 			
 			// Update the rotation for each joint
-			foreach (KeyValuePair<NiteManager.SkeletonJoint, UserSilhoutte> pair in skeletonJointMapping) {
+			foreach (KeyValuePair<NiteManager.SkeletonJoint, BodyJoint> pair in skeletonJointMapping) {
 				if (niteController.GetJointOrientation(pair.Key, out rotation)) {
 				    pair.Value.transform.rotation = rotation;
 				}
 			}
 //			
 //			// Update joint positions
-//			foreach (KeyValuePair<NiteManager.SkeletonJoint, UserSilhoutte> pair in skeletonJointMapping) {
+//			foreach (KeyValuePair<NiteManager.SkeletonJoint, BodyJoint> pair in skeletonJointMapping) {
 //				if (niteController.GetJointPosition(pair.Key, out position)) {
 //				    pair.Value.transform.position = position;
 //				}
@@ -384,7 +404,7 @@ public class UserBody {
 	}
 	
 	public void RotateToInitialPosition () {
-		foreach (KeyValuePair<NiteManager.SkeletonJoint, UserSilhoutte> pair in skeletonJointMapping) {
+		foreach (KeyValuePair<NiteManager.SkeletonJoint, BodyJoint> pair in skeletonJointMapping) {
 			pair.Value.transform.rotation = Quaternion.identity;
 		}
 	}

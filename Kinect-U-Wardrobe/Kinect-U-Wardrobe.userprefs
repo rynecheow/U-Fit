@@ -1,13 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../KinectDressingRoom/Kinect-DressingRoom/Assets/Script/Resizer.cs">
-    <Files>
-      <File FileName="../../KinectDressingRoom/Kinect-DressingRoom/Assets/Script/Resizer.cs" Line="16" Column="2" />
-      <File FileName="../../KinectDressingRoom/Kinect-DressingRoom/Assets/Script/UserBody.cs" Line="3" Column="34" />
-      <File FileName="../../KinectDressingRoom/Kinect-DressingRoom/Assets/Script/ClothingManager.cs" Line="13" Column="59" />
-      <File FileName="../../KinectDressingRoom/Kinect-DressingRoom/Assets/Script/Nite.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
