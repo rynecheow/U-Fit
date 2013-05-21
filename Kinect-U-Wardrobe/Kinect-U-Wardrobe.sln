@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{B80C2FC4-32C2-D00F-0946-FF63DA7F3877}") = "Kinect-U-Wardrobe", "Assembly-CSharp.csproj", "{543433EA-14DD-C58B-ECC6-8EE0C6BC2276}"
+EndProject
+Project("{B80C2FC4-32C2-D00F-0946-FF63DA7F3877}") = "Kinect-U-Wardrobe", "Assembly-UnityScript-firstpass.unityproj", "{877B1DF6-E03F-449C-6E2B-A70F8967D1B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{543433EA-14DD-C58B-ECC6-8EE0C6BC2276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543433EA-14DD-C58B-ECC6-8EE0C6BC2276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543433EA-14DD-C58B-ECC6-8EE0C6BC2276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543433EA-14DD-C58B-ECC6-8EE0C6BC2276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877B1DF6-E03F-449C-6E2B-A70F8967D1B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877B1DF6-E03F-449C-6E2B-A70F8967D1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877B1DF6-E03F-449C-6E2B-A70F8967D1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877B1DF6-E03F-449C-6E2B-A70F8967D1B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.TabWidth = 4
+		$3.EolMarker = Unix
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+	EndGlobalSection
+EndGlobal
