@@ -44,9 +44,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AugDrobe3D\KinectSensor\OpenNIDepthmapViewer.cs" />
-     <Compile Include="Assets\AugDrobe3D\KinectSensor\OpenNISingleSkeletonController.cs" />
-     <Compile Include="Assets\AugDrobe3D\KinectSensor\OpenNIUsersRadar.cs" />
      <Compile Include="Assets\HandpointControls\Scripts\Fader.cs" />
      <Compile Include="Assets\HandpointControls\Scripts\FollowHandPoint.cs" />
      <Compile Include="Assets\HandpointControls\Scripts\HandPointControl.cs" />
@@ -59,11 +56,14 @@
      <Compile Include="Assets\HandpointControls\Scripts\SwipeDetector.cs" />
      <Compile Include="Assets\OpenNI\Scripts\GL.cs" />
      <Compile Include="Assets\OpenNI\Scripts\OpenNIContext.cs" />
+     <Compile Include="Assets\OpenNI\Scripts\OpenNIDepthmapViewer.cs" />
      <Compile Include="Assets\OpenNI\Scripts\OpenNIImagemapViewer.cs" />
      <Compile Include="Assets\OpenNI\Scripts\OpenNISessionManager.cs" />
+     <Compile Include="Assets\OpenNI\Scripts\OpenNISingleSkeletonController.cs" />
      <Compile Include="Assets\OpenNI\Scripts\OpenNISkeleton.cs" />
      <Compile Include="Assets\OpenNI\Scripts\OpenNISplitScreenSkeletonController.cs" />
      <Compile Include="Assets\OpenNI\Scripts\OpenNIUserTracker.cs" />
+     <Compile Include="Assets\OpenNI\Scripts\OpenNIUsersRadar.cs" />
      <Compile Include="Assets\Scripts\ChangeColor.cs" />
      <Compile Include="Assets\Scripts\DummyFeed.cs" />
      <Compile Include="Assets\Scripts\ExitOnEscape.cs" />
