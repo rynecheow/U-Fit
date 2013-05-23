@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AugDrobe3D\Scripts\UnderWater.cs" />
      <Compile Include="Assets\HandpointControls\Scripts\Fader.cs" />
      <Compile Include="Assets\HandpointControls\Scripts\FollowHandPoint.cs" />
      <Compile Include="Assets\HandpointControls\Scripts\HandPointControl.cs" />
