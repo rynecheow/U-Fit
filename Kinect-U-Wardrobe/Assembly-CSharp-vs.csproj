@@ -45,48 +45,45 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AugDrobe3D\Scripts\UnderWater.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\Fader.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\FollowHandPoint.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\HandPointControl.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\ItemSelector.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\Navigator.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\PushDetector.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\ScrollingMenu.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\SessionManagerVisualizer.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\StaticMenu.cs" />
-     <Compile Include="Assets\HandpointControls\Scripts\SwipeDetector.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\GL.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNIContext.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNIDepthmapViewer.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNIImagemapViewer.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNISessionManager.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNISingleSkeletonController.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNISkeleton.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNISplitScreenSkeletonController.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNIUserTracker.cs" />
-     <Compile Include="Assets\OpenNI\Scripts\OpenNIUsersRadar.cs" />
-     <Compile Include="Assets\Scripts\ChangeColor.cs" />
-     <Compile Include="Assets\Scripts\DummyFeed.cs" />
-     <Compile Include="Assets\Scripts\ExitOnEscape.cs" />
-     <Compile Include="Assets\Scripts\LoadScenetest.cs" />
-     <Compile Include="Assets\Scripts\MenuItemChangeColor.cs" />
-     <Compile Include="Assets\Scripts\OpenNIDepthmapToMesh.cs" />
-     <Compile Include="Assets\Scripts\SampleLoaderFeed.cs" />
-     <Compile Include="Assets\Scripts\SampleLoaderItem.cs" />
-     <Compile Include="Assets\Scripts\StartSessionMessage.cs" />
-     <Compile Include="Assets\Scripts\TextTools.cs" />
-     <Compile Include="Assets\Scripts\enableOnSession.cs" />
-     <Compile Include="Assets\Scripts\enableRegistration.cs" />
-     <Compile Include="Assets\Scripts\objectPerUser.cs" />
-     <Compile Include="Assets\SlideViewer\ImageItem.cs" />
-     <Compile Include="Assets\SlideViewer\ImageViewerVisualizer.cs" />
-     <Compile Include="Assets\SlideViewer\ImagesFeed.cs" />
-     <Compile Include="Assets\SlideViewer\SetColor.cs" />
- <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
- <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
- <Reference Include="Assets\OpenNI\Scripts\OpenNI.Net">
- <HintPath>Assets\OpenNI\Scripts\OpenNI.Net.dll</HintPath>
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\Fader.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\FollowHandPoint.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\HandPointControl.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\ItemSelector.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\Navigator.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\PushDetector.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\ScrollingMenu.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\SessionManagerVisualizer.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\StaticMenu.cs" />
+     <Compile Include="Assets\Libraries\HandpointControls\Scripts\SwipeDetector.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\GL.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNIContext.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNIDepthmapViewer.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNIImagemapViewer.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNISessionManager.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNISingleSkeletonController.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNISkeleton.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNISplitScreenSkeletonController.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNIUserTracker.cs" />
+     <Compile Include="Assets\Libraries\OpenNI\Scripts\OpenNIUsersRadar.cs" />
+     <Compile Include="Assets\Libraries\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\Libraries\Scripts\DummyFeed.cs" />
+     <Compile Include="Assets\Libraries\Scripts\ExitOnEscape.cs" />
+     <Compile Include="Assets\Libraries\Scripts\LoadScenetest.cs" />
+     <Compile Include="Assets\Libraries\Scripts\MenuItemChangeColor.cs" />
+     <Compile Include="Assets\Libraries\Scripts\OpenNIDepthmapToMesh.cs" />
+     <Compile Include="Assets\Libraries\Scripts\SampleLoaderFeed.cs" />
+     <Compile Include="Assets\Libraries\Scripts\SampleLoaderItem.cs" />
+     <Compile Include="Assets\Libraries\Scripts\StartSessionMessage.cs" />
+     <Compile Include="Assets\Libraries\Scripts\TextTools.cs" />
+     <Compile Include="Assets\Libraries\Scripts\enableOnSession.cs" />
+     <Compile Include="Assets\Libraries\Scripts\enableRegistration.cs" />
+     <Compile Include="Assets\Libraries\Scripts\objectPerUser.cs" />
+     <Compile Include="Assets\Libraries\SlideViewer\ImageItem.cs" />
+     <Compile Include="Assets\Libraries\SlideViewer\ImageViewerVisualizer.cs" />
+     <Compile Include="Assets\Libraries\SlideViewer\ImagesFeed.cs" />
+     <Compile Include="Assets\Libraries\SlideViewer\SetColor.cs" />
+ <Reference Include="Assets\Libraries\OpenNI\Scripts\OpenNI.Net">
+ <HintPath>Assets\Libraries\OpenNI\Scripts\OpenNI.Net.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
