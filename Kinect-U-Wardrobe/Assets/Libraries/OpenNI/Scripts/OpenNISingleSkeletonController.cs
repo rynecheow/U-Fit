@@ -7,7 +7,7 @@ public class OpenNISingleSkeletonController : MonoBehaviour
 	public OpenNIUserTracker UserTracker;
 	public OpenNISkeleton[] Skeletons;
 	
-	private int userId;
+	public static int userId;
 	private bool outOfFrame;
 	
 	public bool IsTracking {
