@@ -16,8 +16,8 @@ public class HorizontalProgressBar : MonoBehaviour {
  
 	void Start() {
 		
-		position   = new Vector2 ( (13 * Screen.width)/30, (4 * Screen.height)/5 );
-		size       = new Vector2 ( 150, 20 );
+		position   = new Vector2 ( (13.0f * Screen.width)/30.0f, (4.0f * Screen.height)/5.0f );
+		size       = new Vector2 ( 150.0f, 20.0f );
 		
 		emptyTex   = (Texture2D) Resources.Load("white");
 		fullTex    = (Texture2D)  Resources.Load("lightgray");
@@ -29,11 +29,11 @@ public class HorizontalProgressBar : MonoBehaviour {
     void OnGUI() {
 		if(SkeletonController.userId!=0){
 			GUI.BeginGroup(new Rect(position.x,position.y, size.x, size.y));
-	        GUI.DrawTexture(new Rect(0,0, size.x, size.y), emptyTex);
+	        GUI.DrawTexture(new Rect(0.0f,0.0f, size.x, size.y), emptyTex);
 	        GUI.EndGroup();
 			
 			GUI.BeginGroup(new Rect(position.x,position.y, size.x * barDisplay, size.y));
-	        GUI.DrawTexture(new Rect(0,0, size.x, size.y), fullTex);
+	        GUI.DrawTexture(new Rect(0.0f,0.0f, size.x, size.y), fullTex);
 	        GUI.EndGroup();
 		}
     }
@@ -41,7 +41,7 @@ public class HorizontalProgressBar : MonoBehaviour {
     void Update() {
 		if(SkeletonController.userId!=0){
 			startTime = Time.time - SkeletonController.detectTime;
-       		barDisplay = startTime*0.2f;
+       	barDisplay = startTime * 0.2f;
 			subText.text = "";
 			mainText.text = "Loading...";
 			mainText.transform.position = new Vector3(subText.transform.position.x, mainText.transform.position.y);
