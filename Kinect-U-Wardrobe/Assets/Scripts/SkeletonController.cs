@@ -2,33 +2,34 @@ using UnityEngine;
 using System.Collections;
 using OpenNI;
 
-public class SkeletonController : MonoBehaviour 
-{
+public class SkeletonController : MonoBehaviour {
+
+   #region Variable declaration
    public static     OpenNISkeleton[]     staticSkeleton;
    public static     int                  userId;
    public static     float                detectTime;
-
-	public   OpenNIUserTracker  UserTracker;
-	public   OpenNISkeleton[]   Skeletons;
+	public            OpenNIUserTracker    UserTracker;
+	public            OpenNISkeleton[]     Skeletons;
 
 	private  bool  firstRun   = true;
 	private  bool  outOfFrame       ;
-	
-	public bool IsTracking {
-		get {
+	#endregion
+
+	public bool IsTracking() {
          return userId != 0;
-      }
 	}
 	
 	// Use this for initialization
-	
+	#region MonoBehavior
    void Start(){
       if (!UserTracker) {
          UserTracker = GetComponent<OpenNIUserTracker>();
       }
+
       if (!UserTracker) {
          UserTracker = GameObject.FindObjectOfType(typeof(OpenNIUserTracker)) as OpenNIUserTracker;
       }
+
       if (!UserTracker) {
          Debug.LogWarning("Missing a User Tracker. Adding...");
          UserTracker = gameObject.AddComponent<OpenNIUserTracker>();
@@ -42,7 +43,7 @@ public class SkeletonController : MonoBehaviour
 	// Update is called once per frame
 	void Update (){
 		// do we have a valid calibrated user?
-		if (0 != userId){
+		if (IsTracking()){
 			// is the user still valid?
 			if (!UserTracker.CalibratedUsers.Contains(userId)){
 				userId = 0;
@@ -53,7 +54,7 @@ public class SkeletonController : MonoBehaviour
 		}
 		
 		// look for a new userId if we dont have one
-		if (0 == userId){
+		if (!IsTracking()){
 			// just take the first calibrated user
 			if (UserTracker.CalibratedUsers.Count > 0){
 				userId = UserTracker.CalibratedUsers[0];
@@ -62,7 +63,7 @@ public class SkeletonController : MonoBehaviour
 		}
 		
 		// we have a valid userId, lets use it for something!
-		if (0 != userId){
+		if (IsTracking()){
 			// see if user is out o'frame
 			Vector3 com = UserTracker.GetUserCenterOfMass(userId);
 			if (outOfFrame != (com == Vector3.zero)){
@@ -85,15 +86,12 @@ public class SkeletonController : MonoBehaviour
 	}
 	
 	void OnGUI(){
-		if (userId == 0){
-
-		}else{
-			// Calibrated
-			GUILayout.BeginVertical("box");
-			GUILayout.Label(string.Format("Calibrated: {0}", userId));
-			GUILayout.Label(string.Format("Out of frame: {0}", (outOfFrame) ? "TRUE" : "FALSE"));
-			GUILayout.EndVertical();
+		if (IsTracking()){        // Calibrated
+         GUILayout.BeginVertical("box");
+         GUILayout.Label(string.Format("Calibrated: {0}", userId));
+         GUILayout.Label(string.Format("Out of frame: {0}", (outOfFrame) ? "TRUE" : "FALSE"));
+         GUILayout.EndVertical();
 		}
 	}
-	
+	#endregion
 }
