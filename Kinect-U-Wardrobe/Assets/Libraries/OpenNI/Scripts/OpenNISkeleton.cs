@@ -93,6 +93,7 @@ public class OpenNISkeleton : MonoBehaviour
 				initialRotations[(int)j] = Quaternion.Inverse(transform.rotation) * transforms[(int)j].rotation;
 			}
 		}
+		
     }
 
     void Start() 

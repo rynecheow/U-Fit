@@ -6,6 +6,8 @@ public class OpenNIUsersRadar : MonoBehaviour {
 	public OpenNIUserTracker UserTracker;
 	public Vector2 RadarRealWorldDimensions = new Vector2(4000, 4000);
 	public int PixelsPerMeter = 35;
+	public Vector3 com;
+	
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class OpenNIUsersRadar : MonoBehaviour {
 		foreach (int userId in UserTracker.AllUsers)
 		{
 			// normalize the center of mass to radar dimensions
-			Vector3 com = UserTracker.GetUserCenterOfMass(userId);
+			com = UserTracker.GetUserCenterOfMass(userId);
 			Vector2 radarPosition = new Vector2(com.x / RadarRealWorldDimensions.x, -com.z / RadarRealWorldDimensions.y);
 			
 			// X axis: 0 in real world is actually 0.5 in radar units (middle of field of view)
@@ -51,5 +53,9 @@ public class OpenNIUsersRadar : MonoBehaviour {
 			GUI.Box(new Rect(radarPosition.x * width - 10, radarPosition.y * height - 10, 20, 20), userId.ToString());
 		}
 		GUI.EndGroup();
+	}
+	
+	void Update()
+	{
 	}
 }

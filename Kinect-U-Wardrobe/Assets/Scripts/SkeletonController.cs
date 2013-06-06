@@ -13,6 +13,7 @@ public class SkeletonController : MonoBehaviour {
 
 	private  bool  firstRun   = true;
 	private  bool  outOfFrame       ;
+	public static bool detected = false;
 	#endregion
 
 	public bool IsTracking() {
@@ -42,6 +43,7 @@ public class SkeletonController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update (){
+		detected = IsTracking(); 
 		// do we have a valid calibrated user?
 		if (IsTracking()){
 			// is the user still valid?
@@ -83,6 +85,11 @@ public class SkeletonController : MonoBehaviour {
 				firstRun = false;
 			}
 		}
+		
+	//	Debug.Log("X" + Skeletons[0].GetJointRealWorldPosition(Skeletons[0].testjoint).X);
+	//	Debug.Log("Y" + Skeletons[0].GetJointRealWorldPosition(Skeletons[0].testjoint).Y);
+	//	Debug.Log("Z" + Skeletons[0].GetJointRealWorldPosition(Skeletons[0].testjoint).Z);
+	
 	}
 	
 	void OnGUI(){
