@@ -25,7 +25,7 @@ public class MapShirtToBody : MonoBehaviour {
 		if(skeltonController.IsTracking)
 		{
 			Debug.Log("Left Shoulder" +skeletonPontClass.LeftShoulder/1000);
-			shirt.transform.position= new Vector3(shirtPosition.x, 0.2f - newY, shirtZPosition);
+			shirt.transform.position= new Vector3(shirtPosition.x, -0.8f + newY, shirtZPosition);
 		}
 	}
 	
