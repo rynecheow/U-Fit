@@ -12,7 +12,6 @@ public class SkeletonController : MonoBehaviour {
    	public static float detectTime;
 	public OpenNIUserTracker UserTracker;
 	public OpenNISkeleton[] Skeletons;
-	public SkeletonPointClass skeletonPoint;
 	public static  bool  firstRun   = true;
 	private  bool  outOfFrame       ;
 	#endregion
