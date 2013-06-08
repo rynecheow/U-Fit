@@ -19,9 +19,10 @@ public class MapCursorToHand : MonoBehaviour {
 	{		
 		if(skeltonController.IsTracking)
 		{
-			newX = skeletonPointClassX.scaledNewX(skeletonPointClassX.RightElbow/1000);
-			newY = skeletonPointClassY.scaledNewY(skeletonPointClassY.RightElbow/1000);
-			handCursor.transform.position= new Vector3(newX, newY, handZPosition);
+			newX = skeletonPointClassX.scaledNewX(-skeletonPointClassX.LeftHand/1000);
+			newY = skeletonPointClassY.scaledNewY(skeletonPointClassY.LeftHand/1000);
+			handCursor.transform.position= new Vector3(newX*2, newY*2, handZPosition);
+
 			Debug.Log("AAAAAA XXXXXXX" + handCursor.transform.position.x);
 			Debug.Log("AAAAAA YYYYYYY" + handCursor.transform.position.y);
 		}

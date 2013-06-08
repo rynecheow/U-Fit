@@ -21,10 +21,12 @@ public class SkeletonPointClassX: MonoBehaviour
 	public float LeftHip;
 	public float LeftKnee;
 	public float LeftAnkle;
+	public float LeftHand;
 
 	public float RightHip;
 	public float RightKnee;
 	public float RightAnkle;
+	public float RightHand;
 	
 	private OpenNISkeleton tempSkeleton;
 	//private bool isCalibrated;
@@ -48,11 +50,13 @@ public class SkeletonPointClassX: MonoBehaviour
 			LeftShoulder = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftShoulder).X;
 			LeftElbow = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftElbow).X;
 			LeftWrist = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftWrist).X;
-			
+			LeftHand = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftHand).X;
+				
 			RightShoulder = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightShoulder).X;
 			RightElbow = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightElbow).X;
 			RightWrist = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightWrist).X;
-		
+			RightHand = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightHand).X;
+			
 			LeftHip = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftHip).X;
 			LeftKnee = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftKnee).X;
 			LeftAnkle = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftAnkle).X;
@@ -67,7 +71,7 @@ public class SkeletonPointClassX: MonoBehaviour
 	
 	public float scaledNewX(float kinectX)
 	{
-		return (float)(kinectX * 1280) / Screen.width;
+		return (float)(kinectX * Screen.width) / 640;
 	}
 	
 }
