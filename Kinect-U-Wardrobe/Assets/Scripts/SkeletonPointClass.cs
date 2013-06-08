@@ -27,15 +27,15 @@ public class SkeletonPointClass : MonoBehaviour
 	public float RightAnkle;
 	
 	private OpenNISkeleton tempSkeleton;
-	private bool isCalibrated;
+	//private bool isCalibrated;
 	// Use this for initialization
 	void Start () {
-		isCalibrated = false;
+		//isCalibrated = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if((!SkeletonController.firstRun) && (!isCalibrated))
+		if(SkeletonController.staticSkeleton!=null)
 		{
 			tempSkeleton = SkeletonController.staticSkeleton[0];
 			
@@ -50,7 +50,7 @@ public class SkeletonPointClass : MonoBehaviour
 			LeftWrist = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftWrist).Y;
 			
 			RightShoulder = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightShoulder).Y;
-			RightElbow = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightShoulder).Y;
+			RightElbow = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightElbow).Y;
 			RightWrist = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightWrist).Y;
 		
 			LeftHip = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.LeftHip).Y;
@@ -61,7 +61,7 @@ public class SkeletonPointClass : MonoBehaviour
 			RightKnee = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightKnee).Y;
 			RightAnkle = tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.RightAnkle).Y;
 			
-			isCalibrated = true;
+			//isCalibrated = true;
 		}	
 	}
 	

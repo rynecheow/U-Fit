@@ -13,13 +13,14 @@ public class SkeletonController : MonoBehaviour {
 	public OpenNIUserTracker UserTracker;
 	public OpenNISkeleton[] Skeletons;
 	public SkeletonPointClass skeletonPoint;
-
 	public static  bool  firstRun   = true;
 	private  bool  outOfFrame       ;
 	#endregion
 
-	public bool IsTracking() {
-         return userId != 0;
+	public bool IsTracking{
+		get {
+			return userId!=0;
+		}
 	}
 	
 	// Use this for initialization
@@ -47,7 +48,7 @@ public class SkeletonController : MonoBehaviour {
 	// Update is called once per frame
 	void Update (){
 		// do we have a valid calibrated user?
-		if (IsTracking()){
+		if (IsTracking){
 			// is the user still valid?
 			if (!UserTracker.CalibratedUsers.Contains(userId)){
 				userId = 0;
@@ -58,7 +59,7 @@ public class SkeletonController : MonoBehaviour {
 		}
 		
 		// look for a new userId if we dont have one
-		if (!IsTracking()){
+		if (!IsTracking){
 			// just take the first calibrated user
 			if (UserTracker.CalibratedUsers.Count > 0){
 				userId = UserTracker.CalibratedUsers[0];
@@ -67,7 +68,7 @@ public class SkeletonController : MonoBehaviour {
 		}
 		
 		// we have a valid userId, lets use it for something!
-		if (IsTracking()){
+		if (IsTracking){
 			// see if user is out o'frame
 			Vector3 com = UserTracker.GetUserCenterOfMass(userId);
 			if (outOfFrame != (com == Vector3.zero)){
@@ -79,10 +80,10 @@ public class SkeletonController : MonoBehaviour {
 			foreach (OpenNISkeleton skel in Skeletons){
 				UserTracker.UpdateSkeleton(userId, skel);
 			}	
-			
+							staticSkeleton = Skeletons;
 			if(firstRun){
 				detectTime = Time.time;
-				staticSkeleton = Skeletons;
+
 				
 				firstRun = false;
 			}
@@ -93,7 +94,7 @@ public class SkeletonController : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		if (IsTracking()){        // Calibrated
+		if (IsTracking){        // Calibrated
          GUILayout.BeginVertical("box");
          GUILayout.Label(string.Format("Calibrated: {0}", userId));
          GUILayout.Label(string.Format("Out of frame: {0}", (outOfFrame) ? "TRUE" : "FALSE"));
