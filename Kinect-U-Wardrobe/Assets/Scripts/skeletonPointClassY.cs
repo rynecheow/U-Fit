@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using OpenNI;
 
-public class SkeletonPointClass : MonoBehaviour 
+public class SkeletonPointClassY : MonoBehaviour 
 {
 	
 	public float Head;
@@ -30,7 +30,7 @@ public class SkeletonPointClass : MonoBehaviour
 	//private bool isCalibrated;
 	// Use this for initialization
 	void Start () {
-		//isCalibrated = false;
+		//  	isCalibrated = false;
 	}
 	
 	// Update is called once per frame
@@ -63,6 +63,11 @@ public class SkeletonPointClass : MonoBehaviour
 			
 			//isCalibrated = true;
 		}	
+	}
+	
+	public float scaledNewY(float kinectY)
+	{
+		return (float)(kinectY * 960) / Screen.height;
 	}
 	
 	
