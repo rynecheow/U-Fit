@@ -1,19 +1,21 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 using System.Collections;
 using OpenNI;
 
 public class SkeletonController : MonoBehaviour {
 
    #region Variable declaration
-   public static     OpenNISkeleton[]     staticSkeleton;
-   public static     int                  userId;
-   public static     float                detectTime;
-	public            OpenNIUserTracker    UserTracker;
-	public            OpenNISkeleton[]     Skeletons;
+   	public static OpenNISkeleton[] staticSkeleton;
+   	public static int userId;
+   	public static float detectTime;
+	public OpenNIUserTracker UserTracker;
+	public OpenNISkeleton[] Skeletons;
+	public SkeletonPointClass skeletonPoint;
 
-	private  bool  firstRun   = true;
+	public static  bool  firstRun   = true;
 	private  bool  outOfFrame       ;
-	public static bool detected = false;
 	#endregion
 
 	public bool IsTracking() {
@@ -39,11 +41,11 @@ public class SkeletonController : MonoBehaviour {
       if (UserTracker.MaxCalibratedUsers < 1) {
          UserTracker.MaxCalibratedUsers = 1;
       }
+		
    }
 	
 	// Update is called once per frame
 	void Update (){
-		detected = IsTracking(); 
 		// do we have a valid calibrated user?
 		if (IsTracking()){
 			// is the user still valid?
@@ -76,19 +78,17 @@ public class SkeletonController : MonoBehaviour {
 			// update our skeleton based on active user id	
 			foreach (OpenNISkeleton skel in Skeletons){
 				UserTracker.UpdateSkeleton(userId, skel);
-			}
-			
-			staticSkeleton = Skeletons;
+			}	
 			
 			if(firstRun){
 				detectTime = Time.time;
+				staticSkeleton = Skeletons;
+				
 				firstRun = false;
 			}
+			
+
 		}
-		
-	//	Debug.Log("X" + Skeletons[0].GetJointRealWorldPosition(Skeletons[0].testjoint).X);
-	//	Debug.Log("Y" + Skeletons[0].GetJointRealWorldPosition(Skeletons[0].testjoint).Y);
-	//	Debug.Log("Z" + Skeletons[0].GetJointRealWorldPosition(Skeletons[0].testjoint).Z);
 	
 	}
 	

@@ -35,9 +35,9 @@ public class FollowHandPoint : MonoBehaviour
 //                           Mathf.Clamp(vec.y, min.y, max.y),
 //                           Mathf.Clamp(vec.z,min.z,max.z));
 		
-		  return new Vector3(Mathf.Clamp(vec.x, min.x, max.x),
+		  return new Vector3(-Mathf.Clamp(vec.x, min.x, max.x),
                            Mathf.Clamp(vec.y, min.y, max.y),
-                           transform.position.z);
+                           6.858024f);
     }
 
 	Vector3 OpenNIToUnity (Vector3 pos)
