@@ -73,6 +73,5 @@ public class SkeletonPointClassY : MonoBehaviour
 	{
 		return (float)(kinectY * Screen.height) / 480;
 	}
-	
-	
+
 }
