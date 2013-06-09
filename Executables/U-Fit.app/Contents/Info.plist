@@ -5,17 +5,17 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Kinect-U-Wardrobe</string>
+	<string>U-Fit</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Unity Player version 4.1.2f1 (911c7369eeac). (c) 2012 Unity Technologies ApS. All rights reserved.</string>
 	<key>CFBundleIconFile</key>
 	<string>UnityPlayer.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>unity.DefaultCompany.Kinect-U-Wardrobe</string>
+	<string>unity.U-Fit.U-Fit</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Kinect-U-Wardrobe</string>
+	<string>U-Fit</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
