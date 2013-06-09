@@ -4,7 +4,7 @@ using System.Collections;
 public class MapShirtToBody : MonoBehaviour {
 	public GameObject shirt;
 	public Vector3 shirtPosition;
-	public SkeletonPointClassY skeletonPointClassY;
+	public SkeletonPointCursorXY skeletonPointCursorXY;
 	public SkeletonController skeltonController;
 	public static readonly float shirtZPosition = 2.3f;
 	float newY = 0;
@@ -21,8 +21,8 @@ public class MapShirtToBody : MonoBehaviour {
 		
 		if(skeltonController.IsTracking)
 		{
-			newY = skeletonPointClassY.scaledNewY(skeletonPointClassY.LeftShoulder/1000);
-			shirt.transform.position= new Vector3(shirtPosition.x, -0.8f + newY, shirtZPosition);
+			newY = skeletonPointCursorXY.scaledNewY(skeletonPointCursorXY.LeftShoulder.y/1000);
+			shirt.transform.position= new Vector3(shirtPosition.x, -1f + newY, shirtZPosition);
 		}
 	}
 	
@@ -30,7 +30,7 @@ public class MapShirtToBody : MonoBehaviour {
 	{
 		
 		GUILayout.BeginArea (new Rect (Screen.width/3 + 200, Screen.height/2 - 400, 500, 500));
-		GUILayout.Box("Test Date" + System.DateTime.Now);
+		GUILayout.Box("System Date : " + System.DateTime.Now);
 		GUILayout.EndArea();
 
 	}

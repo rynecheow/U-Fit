@@ -7,7 +7,7 @@ using OpenNI;
 public class SkeletonController : MonoBehaviour {
 
    #region Variable declaration
-   	public static OpenNISkeleton[] staticSkeleton;
+   	public static OpenNISkeleton staticSkeleton;
    	public static int userId;
    	public static float detectTime;
 	public OpenNIUserTracker UserTracker;
@@ -41,6 +41,8 @@ public class SkeletonController : MonoBehaviour {
       if (UserTracker.MaxCalibratedUsers < 1) {
          UserTracker.MaxCalibratedUsers = 1;
       }
+		
+		staticSkeleton = null;
 		
    }
 	
@@ -79,11 +81,13 @@ public class SkeletonController : MonoBehaviour {
 			foreach (OpenNISkeleton skel in Skeletons){
 				UserTracker.UpdateSkeleton(userId, skel);
 			}	
-							staticSkeleton = Skeletons;
+			
+			// Always update skeleton points
+			staticSkeleton = Skeletons[0];
+			
 			if(firstRun){
 				detectTime = Time.time;
-
-				
+				// Only calibrate once
 				firstRun = false;
 			}
 			
