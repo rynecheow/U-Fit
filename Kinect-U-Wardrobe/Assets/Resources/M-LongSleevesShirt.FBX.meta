@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 571d9ca52bfba4ae4a216942e31a49b8
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Head
+    100002: IK Chain001
+    100004: Left Ankle
+    100006: Left Elbow
+    100008: Left Foot
+    100010: Left Hip
+    100012: Left Knee
+    100014: Left Shoulder
+    100016: Left Wrist
+    100018: Long Sleeves Shirt
+    100020: LowerBone001
+    100022: LowerBone003
+    100024: LowerBone006
+    100026: LowerBone008
+    100028: LowerBone029
+    100030: LowerBone031
+    100032: LowerBone039
+    100034: //RootNode
+    100036: Neck
+    100038: Right Ankle
+    100040: Right Elbow
+    100042: Right Foot
+    100044: Right Hip
+    100046: Right Knee
+    100048: Right Shoulder
+    100050: Right Wrist
+    100052: Torso
+    100054: UpperBone003
+    100056: UpperBone005
+    100058: UpperBone007
+    100060: UpperBone008
+    100062: UpperBone010
+    100064: UpperBone012
+    100066: UpperBone014
+    100068: UpperBone015
+    100070: UpperBone017
+    100072: UpperBone019
+    100074: UpperBone021
+    100076: UpperBone022
+    100078: UpperBone023
+    100080: UpperBone024
+    100082: UpperBone025
+    100084: UpperBone026
+    100086: UpperBone027
+    100088: UpperBone028
+    100090: Waist
+    400000: Head
+    400002: IK Chain001
+    400004: Left Ankle
+    400006: Left Elbow
+    400008: Left Foot
+    400010: Left Hip
+    400012: Left Knee
+    400014: Left Shoulder
+    400016: Left Wrist
+    400018: Long Sleeves Shirt
+    400020: LowerBone001
+    400022: LowerBone003
+    400024: LowerBone006
+    400026: LowerBone008
+    400028: LowerBone029
+    400030: LowerBone031
+    400032: LowerBone039
+    400034: //RootNode
+    400036: Neck
+    400038: Right Ankle
+    400040: Right Elbow
+    400042: Right Foot
+    400044: Right Hip
+    400046: Right Knee
+    400048: Right Shoulder
+    400050: Right Wrist
+    400052: Torso
+    400054: UpperBone003
+    400056: UpperBone005
+    400058: UpperBone007
+    400060: UpperBone008
+    400062: UpperBone010
+    400064: UpperBone012
+    400066: UpperBone014
+    400068: UpperBone015
+    400070: UpperBone017
+    400072: UpperBone019
+    400074: UpperBone021
+    400076: UpperBone022
+    400078: UpperBone023
+    400080: UpperBone024
+    400082: UpperBone025
+    400084: UpperBone026
+    400086: UpperBone027
+    400088: UpperBone028
+    400090: Waist
+    4300000: Long Sleeves Shirt
+    9500000: //RootNode
+    13700000: Long Sleeves Shirt
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

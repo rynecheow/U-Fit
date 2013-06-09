@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 86a5732cd6645421b80c7cff08d5f267
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Head
+    100002: IK Chain001
+    100004: IK Chain002
+    100006: IK Chain003
+    100008: Left Ankle
+    100010: Left Elbow
+    100012: Left Foot
+    100014: Left Hip
+    100016: Left Knee
+    100018: Left Shoulder
+    100020: Left Wrist
+    100022: LowerBone001
+    100024: LowerBone003
+    100026: LowerBone006
+    100028: LowerBone008
+    100030: LowerBone029
+    100032: LowerBone031
+    100034: LowerBone039
+    100036: //RootNode
+    100038: Neck
+    100040: Right Ankle
+    100042: Right Elbow
+    100044: Right Foot
+    100046: Right Hip
+    100048: Right Knee
+    100050: Right Shoulder
+    100052: Right Wrist
+    100054: Sweater
+    100056: Torso
+    100058: Trousers
+    100060: UpperBone003
+    100062: UpperBone005
+    100064: UpperBone007
+    100066: UpperBone008
+    100068: UpperBone010
+    100070: UpperBone012
+    100072: UpperBone014
+    100074: UpperBone015
+    100076: UpperBone017
+    100078: UpperBone019
+    100080: UpperBone021
+    100082: UpperBone022
+    100084: UpperBone023
+    100086: UpperBone024
+    100088: UpperBone025
+    100090: UpperBone026
+    100092: UpperBone027
+    100094: UpperBone028
+    100096: Waist
+    400000: Head
+    400002: IK Chain001
+    400004: IK Chain002
+    400006: IK Chain003
+    400008: Left Ankle
+    400010: Left Elbow
+    400012: Left Foot
+    400014: Left Hip
+    400016: Left Knee
+    400018: Left Shoulder
+    400020: Left Wrist
+    400022: LowerBone001
+    400024: LowerBone003
+    400026: LowerBone006
+    400028: LowerBone008
+    400030: LowerBone029
+    400032: LowerBone031
+    400034: LowerBone039
+    400036: //RootNode
+    400038: Neck
+    400040: Right Ankle
+    400042: Right Elbow
+    400044: Right Foot
+    400046: Right Hip
+    400048: Right Knee
+    400050: Right Shoulder
+    400052: Right Wrist
+    400054: Sweater
+    400056: Torso
+    400058: Trousers
+    400060: UpperBone003
+    400062: UpperBone005
+    400064: UpperBone007
+    400066: UpperBone008
+    400068: UpperBone010
+    400070: UpperBone012
+    400072: UpperBone014
+    400074: UpperBone015
+    400076: UpperBone017
+    400078: UpperBone019
+    400080: UpperBone021
+    400082: UpperBone022
+    400084: UpperBone023
+    400086: UpperBone024
+    400088: UpperBone025
+    400090: UpperBone026
+    400092: UpperBone027
+    400094: UpperBone028
+    400096: Waist
+    4300000: Sweater
+    4300002: Trousers
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Sweater
+    13700002: Trousers
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

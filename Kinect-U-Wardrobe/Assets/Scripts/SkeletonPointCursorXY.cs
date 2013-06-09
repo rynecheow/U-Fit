@@ -34,6 +34,11 @@ public class SkeletonPointCursorXY: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	UpdateSkeletonJointPosition ();
+	}
+
+	void UpdateSkeletonJointPosition ()
+	{
 		if(SkeletonController.STATIC_SKELETON!=null){
 			OpenNISkeleton tempSkeleton = SkeletonController.STATIC_SKELETON;
 			
