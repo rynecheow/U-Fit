@@ -8,7 +8,7 @@ public class DetectHover : MonoBehaviour {
 	public GameObject shirtChosen;
 	float x;
 	float y;
-	public static readonly double Z_CONSTANT = 3.899715f; 
+	public static readonly float Z_CONSTANT = 3.899715f; 
 
 	// Use this for initialization
 	void Start () {
