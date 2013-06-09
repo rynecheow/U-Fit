@@ -21,6 +21,11 @@ public class HorizontalProgressBar : MonoBehaviour {
 
    #region MonoBehavior
 	void Start() {
+	InitialiseTextureAndPosition ();
+	}
+
+	void InitialiseTextureAndPosition ()
+	{
 		v_position        = new Vector2 ( POS_X_FACTOR * Screen.width, POS_Y_FACTOR * Screen.height );
 		v_dimension       = new Vector2 ( DIM_WIDTH, DIM_HEIGHT );
 		
@@ -32,26 +37,36 @@ public class HorizontalProgressBar : MonoBehaviour {
 	}
 
    void OnGUI() {
-      if(SkeletonController.USER_ID!=0){
-         GUI.BeginGroup(new Rect(v_position.x,v_position.y, v_dimension.x, v_dimension.y));
-         GUI.DrawTexture(new Rect(0.0f, 0.0f, v_dimension.x, v_dimension.y), startTexture);
-         GUI.EndGroup();
-			
-         GUI.BeginGroup(new Rect(v_position.x,v_position.y, v_dimension.x * loadingDuration, v_dimension.y));
-         GUI.DrawTexture(new Rect(0.0f, 0.0f, v_dimension.x, v_dimension.y), stopTexture);
-         GUI.EndGroup();
-      }
+     DrawProgressBar ();
    }
+
+	void DrawProgressBar ()
+	{
+		if(SkeletonController.USER_ID!=0){
+   	   GUI.BeginGroup(new Rect(v_position.x,v_position.y, v_dimension.x, v_dimension.y));
+   	   GUI.DrawTexture(new Rect(0.0f, 0.0f, v_dimension.x, v_dimension.y), startTexture);
+   	   GUI.EndGroup();
+   	
+   	   GUI.BeginGroup(new Rect(v_position.x,v_position.y, v_dimension.x * loadingDuration, v_dimension.y));
+   	   GUI.DrawTexture(new Rect(0.0f, 0.0f, v_dimension.x, v_dimension.y), stopTexture);
+   	   GUI.EndGroup();
+   	}
+	}
  
    void Update() {
-      if(SkeletonController.USER_ID!=0){
-         m_time_start                  = Time.time - SkeletonController.TIME;
-       	loadingDuration               = m_time_start * 0.2f;
-			subText.text                  = @"";
-			mainText.text                 = @"Loading...";
-			mainText.transform.position   = new Vector3(subText.transform.position.x, mainText.transform.position.y);
-			PROGRESS_BAR_SIZE               = v_dimension.x * loadingDuration;
-      }
+     UpdateProgressBar ();
    }
+
+	void UpdateProgressBar ()
+	{
+		if(SkeletonController.USER_ID!=0){
+   	     	m_time_start                  = Time.time - SkeletonController.TIME;
+   	    	loadingDuration               = m_time_start * 0.2f;
+   			subText.text                  = @"";
+   			mainText.text                 = @"Loading...";
+   			mainText.transform.position   = new Vector3(subText.transform.position.x, mainText.transform.position.y);
+   			PROGRESS_BAR_SIZE               = v_dimension.x * loadingDuration;
+   	   }
+	}
    #endregion
 }

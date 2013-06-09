@@ -19,24 +19,22 @@ public class DetectHover : MonoBehaviour {
 	
 	// Update is called once per frame
    void Update() {
-      for (int i = 0 ; i < cube.Length ; i++){
-         x = Camera.main.WorldToScreenPoint(cube[i].transform.position).x;
-         y = Camera.main.WorldToScreenPoint(cube[i].transform.position).y;
-         cube[i].renderer.enabled = false;
-         if (guiTexture.HitTest(new Vector3(x,y,Z_CONSTANT))){
-            cubeName = cube[i].name;
-            shirtChosen = shirt[i];
-            break;
-         }
-            cubeName = "NULL";
-      }
+     DetectHoverToShirt ();
    }
+
+	void DetectHoverToShirt ()
+	{
+		for (int i = 0 ; i < cube.Length ; i++){
+	   	   	x = Camera.main.WorldToScreenPoint(cube[i].transform.position).x;
+	   	   	y = Camera.main.WorldToScreenPoint(cube[i].transform.position).y;
+	   	   	cube[i].renderer.enabled = false;
+	   	   	if (guiTexture.HitTest(new Vector3(x,y,Z_CONSTANT))){
+	   	      cubeName = cube[i].name;
+	   	      shirtChosen = shirt[i];
+	   	      break;
+	   	   	}
+	   	      cubeName = "NULL";
+   		}
+	}
 	
-   void OnGUI(){
-      GUILayout.BeginArea (new Rect (Screen.width/2, Screen.height/2, 500, 500));	
-      if(!cubeName.Equals("NULL")){
-         GUILayout.Box(cubeName + " is Detected");
-      }
-      GUILayout.EndArea();
-   }
 }

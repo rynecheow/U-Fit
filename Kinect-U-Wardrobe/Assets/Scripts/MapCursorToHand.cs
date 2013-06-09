@@ -15,6 +15,11 @@ public class MapCursorToHand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {		
+	UpdateHandCursor ();
+	}
+
+	void UpdateHandCursor ()
+	{
 		if(skeltonController.IsTracking){
 			newX = skeletonPointCursorXY.scaledNewX(-skeletonPointCursorXY.LeftHand.x/1000);
 			newY = skeletonPointCursorXY.scaledNewY(skeletonPointCursorXY.LeftHand.y/1000);
