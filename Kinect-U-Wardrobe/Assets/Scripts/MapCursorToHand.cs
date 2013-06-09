@@ -23,14 +23,5 @@ public class MapCursorToHand : MonoBehaviour {
 			handCursor.transform.position= new Vector3(newX, newY, handZPosition);
 		}
 	}
-	
-	void OnGUI()
-	{
-		GUILayout.BeginArea (new Rect (Screen.width/2, Screen.height/2, 500, 500));
-		GUILayout.Box("Left Hand X " + newX);
-		GUILayout.Box("Left Hand X" + newY);
-		GUILayout.EndArea();
-	}
-	
 
 }
