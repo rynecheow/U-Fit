@@ -32,7 +32,8 @@ public class MapShirtToBody : MonoBehaviour {
 				{
 					availableShirt[i].transform.position = originalPosition;
 				}
-				else{
+				else
+				{
 					availableShirt[i].transform.position= new Vector3(shirtPosition.x, -1f + newY, shirtZPosition);
 				}
 			}
