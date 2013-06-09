@@ -2,8 +2,7 @@ using UnityEngine;
 using System.Collections;
 using OpenNI;
 
-public class SkeletonPointCursorXY: MonoBehaviour 
-{
+public class SkeletonPointCursorXY: MonoBehaviour {
 	
 	public Vector2 Head;
 	public Vector2 Neck;
@@ -35,9 +34,8 @@ public class SkeletonPointCursorXY: MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		
-		if(SkeletonController.staticSkeleton!=null)
-		{
-			OpenNISkeleton tempSkeleton = SkeletonController.staticSkeleton;
+		if(SkeletonController.STATIC_SKELETON!=null){
+			OpenNISkeleton tempSkeleton = SkeletonController.STATIC_SKELETON;
 			
 			Head = getXYPosition(tempSkeleton.GetJointRealWorldPosition(SkeletonJoint.Head));
 			
@@ -66,18 +64,15 @@ public class SkeletonPointCursorXY: MonoBehaviour
 		}
 	}
 	
-	public float scaledNewX(float kinectX)
-	{
+	public float scaledNewX(float kinectX){
 		return (float)(kinectX * Screen.width) / 640;
 	}
 	
-	public float scaledNewY(float kinectY)
-	{
-		return (float)(kinectY * Screen.width) / 640;
+	public float scaledNewY(float kinectY){
+		return (float)(kinectY * Screen.height) / 480;
 	}
 	
-	private Vector2 getXYPosition(Point3D point3D)
-	{
+	private Vector2 getXYPosition(Point3D point3D){
 		return new Vector2(point3D.X,point3D.Y);
 	}
 	

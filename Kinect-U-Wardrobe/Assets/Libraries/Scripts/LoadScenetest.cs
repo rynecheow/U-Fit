@@ -6,7 +6,7 @@ public class LoadScenetest : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (HorizontalProgressBar.progressBarSize > 150)
+		if (HorizontalProgressBar.PROGRESS_BAR_SIZE > 150)
 		{
 			Application.LoadLevel(1);
 		}

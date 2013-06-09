@@ -3,11 +3,8 @@ using System.Collections;
 
 public class LoadScene : MonoBehaviour {
 
-
-	void OnGUI()
-	{
-		if (HorizontalProgressBar.progressBarSize > 150)
-		{
+	void OnGUI(){
+		if (HorizontalProgressBar.PROGRESS_BAR_SIZE > 150){
 			Application.LoadLevel(1);
 		}
 	}	
