@@ -9,12 +9,13 @@ public class MapShirtToBody : MonoBehaviour {
 	public SkeletonController skeltonController;
 	public GameObject[] availableShirt;
 	public static readonly float shirtZPosition = 2.3f;
-	public static readonly Vector3 originalPosition = new Vector3(0,0,0);
+	public static readonly Vector3 originalPosition = new Vector3(0,0,-5);
 	float newY = 0;
 	
 	// Use this for initialization
 	void Start () {
 		shirtPosition = shirt.transform.position;
+		shirt = null;
 	}
 	
 	// Update is called once per frame
@@ -25,15 +26,15 @@ public class MapShirtToBody : MonoBehaviour {
 		
 		if(skeltonController.IsTracking && detectHover.choosedShirt!=null)
 		{
-			for(int i =0; i<skeltonController.Skeletons.Length; i++)
+			for(int i =0; i<2; i++)
 			{
 				if(!shirt.name.Equals(availableShirt[i].name))
 				{
 					availableShirt[i].transform.position = originalPosition;
 				}
-				
-
-				availableShirt[i].transform.position= new Vector3(shirtPosition.x, -1f + newY, shirtZPosition);
+				else{
+					availableShirt[i].transform.position= new Vector3(shirtPosition.x, -1f + newY, shirtZPosition);
+				}
 			}
 
 		}
