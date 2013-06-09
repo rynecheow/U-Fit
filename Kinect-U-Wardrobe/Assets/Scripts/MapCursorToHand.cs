@@ -3,8 +3,7 @@ using System.Collections;
 
 public class MapCursorToHand : MonoBehaviour {
 	public GameObject handCursor;
-	public SkeletonPointClassY skeletonPointClassY;
-	public SkeletonPointClassX skeletonPointClassX;
+	public SkeletonPointCursorXY skeletonPointCursorXY;
 	public SkeletonController skeltonController;
 	public static readonly float handZPosition = 3.899715f;
 	float newY = 0;
@@ -19,22 +18,17 @@ public class MapCursorToHand : MonoBehaviour {
 	{		
 		if(skeltonController.IsTracking)
 		{
-			newX = skeletonPointClassX.scaledNewX(-skeletonPointClassX.LeftHand/1000);
-			newY = skeletonPointClassY.scaledNewY(skeletonPointClassY.LeftHand/1000);
-			handCursor.transform.position= new Vector3(newX*2, newY*2, handZPosition);
-
-			Debug.Log("AAAAAA XXXXXXX" + handCursor.transform.position.x);
-			Debug.Log("AAAAAA YYYYYYY" + handCursor.transform.position.y);
+			newX = skeletonPointCursorXY.scaledNewX(-skeletonPointCursorXY.LeftHand.x/1000);
+			newY = skeletonPointCursorXY.scaledNewY(skeletonPointCursorXY.LeftHand.y/1000);
+			handCursor.transform.position= new Vector3(newX, newY, handZPosition);
 		}
 	}
 	
 	void OnGUI()
 	{
 		GUILayout.BeginArea (new Rect (Screen.width/2, Screen.height/2, 500, 500));
-		GUILayout.Box("Right Wrist" + skeletonPointClassX.scaledNewX(skeletonPointClassX.RightWrist/1000));
-		GUILayout.Box("Left Wrist" + skeletonPointClassX.scaledNewX(skeletonPointClassX.LeftWrist/1000));
-		GUILayout.Box("Right Elbow" + skeletonPointClassX.scaledNewX(skeletonPointClassX.RightElbow/1000));
-		GUILayout.Box("Left Elbow" + skeletonPointClassX.scaledNewX(skeletonPointClassX.LeftElbow/1000));
+		GUILayout.Box("Left Hand X " + newX);
+		GUILayout.Box("Left Hand X" + newY);
 		GUILayout.EndArea();
 	}
 	
