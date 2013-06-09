@@ -3,10 +3,13 @@ using System.Collections;
 
 public class MapShirtToBody : MonoBehaviour {
 	public GameObject shirt;
+	public DetectHover detectHover;
 	public Vector3 shirtPosition;
 	public SkeletonPointCursorXY skeletonPointCursorXY;
 	public SkeletonController skeltonController;
+	public GameObject[] availableShirt;
 	public static readonly float shirtZPosition = 2.3f;
+	public static readonly Vector3 originalPosition = new Vector3(0,0,0);
 	float newY = 0;
 	
 	// Use this for initialization
@@ -17,18 +20,27 @@ public class MapShirtToBody : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//cube.transform.position = new Vector3(cube.transform.position.x , skeletonPontClass.LeftShoulder/100, cube.transform.position.z);
+		shirt = detectHover.choosedShirt;
+		newY = skeletonPointCursorXY.scaledNewY(skeletonPointCursorXY.LeftShoulder.y/1000);
 		
-		if(skeltonController.IsTracking)
+		if(skeltonController.IsTracking && detectHover.choosedShirt!=null)
 		{
-			newY = skeletonPointCursorXY.scaledNewY(skeletonPointCursorXY.LeftShoulder.y/1000);
-			shirt.transform.position= new Vector3(shirtPosition.x, -1f + newY, shirtZPosition);
+			for(int i =0; i<skeltonController.Skeletons.Length; i++)
+			{
+				if(!shirt.name.Equals(availableShirt[i].name))
+				{
+					availableShirt[i].transform.position = originalPosition;
+				}
+				
+
+				availableShirt[i].transform.position= new Vector3(shirtPosition.x, -1f + newY, shirtZPosition);
+			}
+
 		}
 	}
 	
 	void OnGUI()
 	{
-		
 		GUILayout.BeginArea (new Rect (Screen.width/3 + 200, Screen.height/2 - 400, 500, 500));
 		GUILayout.Box("System Date : " + System.DateTime.Now);
 		GUILayout.EndArea();
