@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class DetectHover : MonoBehaviour {
-	public GameObject shirt;
+	public Collider collider;
 	Vector3 center;
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,6 @@ public class DetectHover : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider col)
 	{
- 
 	    if (col.gameObject.name == "CollidorTry")
 	    {
 			
