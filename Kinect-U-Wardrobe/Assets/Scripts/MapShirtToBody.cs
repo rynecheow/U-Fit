@@ -46,7 +46,7 @@ public class MapShirtToBody : MonoBehaviour {
 
 	static void DrawTimeBox ()
 	{
-		GUILayout.BeginArea (new Rect (Screen.width/3 + 200, Screen.height/2 - 400, 500, 500));
+		GUILayout.BeginArea (new Rect (Screen.width/3 + 200, 0, 500, 500));
 		GUILayout.Box("System Date : " + System.DateTime.Now);
 		GUILayout.EndArea();
 	}
