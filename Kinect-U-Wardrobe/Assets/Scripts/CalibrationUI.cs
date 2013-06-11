@@ -23,7 +23,7 @@ public class CalibrationUI : MonoBehaviour {
 		else
 		{
 			calibrationImage.transform.position = new Vector3(0.1402053f,2.698014f,4.213649f);
-			mainTitle.transform.position = new Vector3(0.1f,0.7161173f,-7.608501f);
+			mainTitle.transform.position = new Vector3(0f,0.7161173f,-7.608501f);
 		}
 	}
 	

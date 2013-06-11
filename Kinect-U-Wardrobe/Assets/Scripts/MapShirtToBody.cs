@@ -15,7 +15,7 @@ public class MapShirtToBody : MonoBehaviour {
 	// Use this for initialization
    void Start () {
       shirtPosition = shirt.transform.position;
-      shirt = null;
+      //shirt = null;
    }
 	
 	// Update is called once per frame
